@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>typing train</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 8px;
+        }
+        #output, #main{
+            margin-top: 20px;
+            text-align: center;
+        }
+        #words
+        {
+            width: 98%;
+            font-size: 24pt;
+            padding: 8px;
+            border: 1px solid black;
+        }
+        .time{
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+        }
+        .answer input{
+            padding: 5px;
+            text-align: center;
+            font-size: 18pt;
+            display: block;
+            margin: auto;
+        }
+        .prevent-select {
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+        }
+        #restart{
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body dir="rtl">
+    <div id="output" style="display: block;">
+        <input type='file' title="file" accept='text/plain' onchange='openFile(event)'><br>
+        <p>یک فایل کلمات انتخاب کنید</p>
+    </div>
+    <div id="main" style="display: none;" class="prevent-select">
+        <div id="words"></div>
+        <div class="time">
+            <div>
+                <label for="saat">ساعت</label>
+                <b id="saat"></b></div>
+            <div>
+                <label for="correct_word">کلمات درست</label>
+                <b id="correct_word"></b></div>
+            <div>
+                <label for="wrong_word">کلمات غلط</label>
+                <b id="wrong_word"></b></div>
+        </div>
+        <div class="answer">
+            <input type="text" id="input" title="input">
+            <input type="hidden" id="word_index" title="word_index" value="0">
+            <input type="button" value="شروع مجدد" id="restart" style="display: none;">
+            <input type="button" value="انتخاب فایل" id="choos_file" style="display: none;">
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
