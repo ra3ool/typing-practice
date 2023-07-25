@@ -40,25 +40,45 @@
         #restart{
             margin: 10px auto;
         }
+        .correct{
+            background-color: #6cef3a;
+        }
+        .wrong{
+            background-color: #ff5c5c;
+        }
+        #words_count{
+            padding: 7px;
+            width: 15px;
+            text-align: center;
+        }
     </style>
 </head>
 <body dir="rtl">
     <div id="output" style="display: block;">
-        <input type='file' title="file" accept='text/plain' onchange='openFile(event)'><br>
+        <input type='file' title="file" accept='text/plain' onchange='openFile(event)' dir="ltr"><br>
         <p>یک فایل کلمات انتخاب کنید</p>
+        <input type="text" value="20" id="words_count" title="words_count">
+        <a>کلمه برام بنویس</a>
     </div>
     <div id="main" style="display: none;" class="prevent-select">
         <div id="words"></div>
         <div class="time">
             <div>
-                <label for="saat">ساعت</label>
-                <b id="saat"></b></div>
+                <label for="saat">زمان: </label>
+                <b id="saat"></b>
+            </div>
             <div>
-                <label for="correct_word">کلمات درست</label>
-                <b id="correct_word"></b></div>
+                <label for="speed">سرعت: </label>
+                <b id="speed"></b>
+            </div>
             <div>
-                <label for="wrong_word">کلمات غلط</label>
-                <b id="wrong_word"></b></div>
+                <label for="correct_word">کلمات درست: </label>
+                <b id="correct_word"></b>
+            </div>
+            <div>
+                <label for="wrong_word">کلمات غلط: </label>
+                <b id="wrong_word"></b>
+            </div>
         </div>
         <div class="answer">
             <input type="text" id="input" title="input">
