@@ -72,7 +72,6 @@ restart.addEventListener('click', () => {
     word_index.value = 0
     words.innerHTML = ''
     second = 0
-    input.focus()
     openFile()
 })
 choos_file.addEventListener('click', () => {
@@ -85,12 +84,17 @@ input.addEventListener('keyup', e => {
     const spans = document.querySelectorAll('span')
     let val = e.target.value.trim()
     let index = Number(word_index.value)
-    if (e.key == " " || e.code == "Space" || e.keyCode == 32){
+    const space = e.key == " " || e.code == "Space" || e.keyCode == 32
+    if (space){
         if(!val) return
-        if(val === selected[index])
+        if(val === selected[index]){
+            spans[index].classList.remove('warning')
             spans[index].classList.add('correct')
-        else
+        }
+        else{
+            spans[index].classList.remove('warning')
             spans[index].classList.add('wrong')
+        }
 
         updateWordCount()
         spans[index].style.textDecoration = 'none'
@@ -100,4 +104,8 @@ input.addEventListener('keyup', e => {
         spans[index].style.textDecoration = 'underline'
         word_index.value = index
     }
+    if (!space && (spans[index].innerText.charAt(val.length - 1) !== val.charAt(val.length - 1)))
+        spans[index].classList.add('warning')
+    else
+        spans[index].classList.remove('warning')
 })
