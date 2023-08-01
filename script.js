@@ -27,7 +27,7 @@ const openFile = event => {
         text = reader.result.split("\r\n").filter(n => n)
         selected = text.sort(() => 0.5 - Math.random()).slice(0, words_count.value)
         for (const [i, word] of selected.entries()) {
-            words.innerHTML += `<span>${word}</span> `
+            words.innerHTML += `<span>${word.toLowerCase()}</span> `
             // if (i !== selected.length - 1) {
             //     words.innerHTML += ' - '
             // }
@@ -38,6 +38,7 @@ const openFile = event => {
         speed.innerText = 0 + ' کلمه بر دقیقه'
         correct_word.innerText = 0 + ' از ' + selected.length
         wrong_word.innerText = 0 + ' از ' + selected.length
+        if (/^\w+$/.test(selected[0])) input.dir = 'ltr'
         input.focus()
     };
     reader.readAsText(file)
@@ -104,7 +105,7 @@ input.addEventListener('keyup', e => {
         spans[index].style.textDecoration = 'underline'
         word_index.value = index
     }
-    if (!space && (spans[index].innerText.charAt(val.length - 1) !== val.charAt(val.length - 1)))
+    if (!space && (spans[index].innerText.substr(0, val.length) !== val.substr(0, val.length)))
         spans[index].classList.add('warning')
     else
         spans[index].classList.remove('warning')
