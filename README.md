@@ -1,3 +1,4 @@
 # typing-practice
-### ho to use:
-open index.html and choose on of .txt files or your own words file
+### how to use:
+open index.html and choose one of ".txt" files or your own words file
+the words can be in fa or en language!
