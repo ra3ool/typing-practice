@@ -11,6 +11,7 @@ let saat = document.getElementById('saat')
 let speed = document.getElementById('speed')
 let correct_word = document.getElementById('correct_word')
 let wrong_word = document.getElementById('wrong_word')
+let wrong_word_list = document.getElementById('wrong_word_list')
 let text = [], selected = [], play = false, second = 0, interval = null
 
 const openFile = event => {
@@ -95,6 +96,9 @@ input.addEventListener('keyup', e => {
         else{
             spans[index].classList.remove('warning')
             spans[index].classList.add('wrong')
+            let li = document.createElement('li')
+            li.textContent = val + ' => ' + selected[index]
+            document.getElementById('wrong_word_list').appendChild(li)
         }
 
         updateWordCount()
